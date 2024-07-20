@@ -17,11 +17,6 @@ const AddNewTodo = () => {
   const [time, setTime] = useState(new Date());
   const [todoProject, setTodoProject] = useState(selectedProject);
 
-  // const projects = [
-  //   { id: 1, name: "personal", numOfTodos: 0 },
-  //   { id: 2, name: "work", numOfTodos: 2 },
-  //   { id: 3, name: "other", numOfTodos: 1 },
-  // ];
   function handleSubmit(e) {
     e.preventDefault();
     if (text && !items.includes(todoProject)) {
