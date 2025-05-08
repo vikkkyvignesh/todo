@@ -3,9 +3,10 @@ import { Bell, CalendarDay, Clock, Palette, X } from "react-bootstrap-icons";
 import {
   DatePicker,
   TimePicker,
-  MuiPickersUtilsProvider,
-} from "@material-ui/pickers";
-import DateFnsUtils from "@date-io/date-fns";
+  LocalizationProvider,
+} from "@mui/x-date-pickers";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+
 const TodoForm = ({
   handleSubmit,
   heading = false,
@@ -22,7 +23,7 @@ const TodoForm = ({
   setShowModal = false,
 }) => {
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
       <form onSubmit={handleSubmit} className="TodoForm">
         <div className="text">
           {heading && <h3>{heading}</h3>}
@@ -43,24 +44,14 @@ const TodoForm = ({
             <CalendarDay />
             <p>Choose a day</p>
           </div>
-          <DatePicker
-            value={day}
-            onChange={(day) => {
-              setDay(day);
-            }}
-          />
+          <DatePicker value={day} onChange={(newDay) => setDay(newDay)} />
         </div>
         <div className="pick-time">
           <div className="title">
             <Clock />
             <p>Choose Time</p>
           </div>
-          <TimePicker
-            value={time}
-            onChange={(time) => {
-              setTime(time);
-            }}
-          />
+          <TimePicker value={time} onChange={(newTime) => setTime(newTime)} />
         </div>
         <div className="pick-project">
           <div className="title">
@@ -103,7 +94,7 @@ const TodoForm = ({
           </div>
         )}
       </form>
-    </MuiPickersUtilsProvider>
+    </LocalizationProvider>
   );
 };
 
