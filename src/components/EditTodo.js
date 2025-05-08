@@ -16,8 +16,12 @@ function EditTodo() {
   useEffect(() => {
     if (selectedTodo) {
       setText(selectedTodo.text);
-      setDay(moment(selectedTodo.date, "MM/DD/YYYY"));
-      setTime(moment(selectedTodo.time, "hh:mm A"));
+      // Parse date and time from strings
+      const parsedDate = moment(selectedTodo.date, "MM/DD/YYYY").toDate();
+      const parsedTime = moment(selectedTodo.time, "hh:mm A").toDate();
+
+      setDay(parsedDate);
+      setTime(parsedTime);
       setTodoProject(selectedTodo.projectName);
     }
   }, [selectedTodo]);
