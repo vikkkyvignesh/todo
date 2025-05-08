@@ -1,6 +1,5 @@
 {
   "name": "project_1",
-  "homepage": "https://github.com/vikkkyvignesh/React-Todo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -28,8 +27,6 @@
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build ",
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -50,7 +47,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "gh-pages": "^6.1.1"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
